@@ -1,0 +1,27 @@
+<div class="goodsListMain"  ng-controller="goodsListMainCtrl">
+     {{pageList}}1
+     <ul class="nav nav-pills">     
+        <li>  
+            <a ui-sref=".home">首页</a>  
+        </li>      
+        <li>  
+            <a ui-sref=".market">熊猫超市</a>  
+        </li>  
+        <li>  
+            <a ui-sref=".international">熊猫国际</a>  
+        </li>
+        <li>  
+            <a ui-sref=".onSale">熊猫特惠</a>  
+        </li>
+        <li>  
+            <a ui-sref=".rank">排行榜</a>  
+        </li>
+        <li>  
+            <a ui-sref=".brand">品牌团</a>  
+        </li> 
+    </ul>    
+    <div class="container">
+        <div ui-view="listNav"></div>  
+    </div>
+</div>
+

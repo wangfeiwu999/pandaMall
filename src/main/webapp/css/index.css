@@ -1,0 +1,11 @@
+.homeNav{
+	border-bottom: 1px solid #ccc;
+}
+#logoLink{
+	padding: 0;
+    margin-left: 20px;
+}
+#logoLink>img{
+	width: 50px;
+	height: 50px;
+}
