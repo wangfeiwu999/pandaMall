@@ -3,8 +3,13 @@ package cn.chinaSoft.pandaMall.goodsList.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import cn.chinaSoft.pandaMall.common.base.ResponseModel;
+import cn.chinaSoft.pandaMall.common.entity.User;
 import cn.chinaSoft.pandaMall.goodsList.service.GoodListHomeService;
 
 @Controller
@@ -12,10 +17,16 @@ public class GoodListHomeController {
 	@Autowired
 	private GoodListHomeService	homeService;
 	
-	@RequestMapping("/getGoodsListHome")
-	private String getGoodsListHome(ModelMap map) {
+	@RequestMapping(value = "/getGoodsListHome", method = RequestMethod.POST)
+	 @ResponseBody
+	private ResponseModel getGoodsListHome(@RequestBody User user,ModelMap map) {
 		System.out.println("请求进来了");
-		return homeService.getGoodsListHome();
+		System.out.println(user);
+		System.out.println(map);
+		 homeService.getGoodsListHome();
+		 ResponseModel<User> responseModel=new ResponseModel<User>();
+		 responseModel.setResult("succese");
+		 return responseModel;
 	}
 
 

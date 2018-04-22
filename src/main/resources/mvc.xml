@@ -19,6 +19,7 @@
 	</mvc:message-converters>
 </mvc:annotation-driven>
 
+<!--  负责读取字符串格式的数据和写出二进制格式的数据； -->
 <bean id="stringHttpMessageConverter"
 	class="org.springframework.http.converter.StringHttpMessageConverter">
 	<property name="supportedMediaTypes">
@@ -29,6 +30,7 @@
 	</property>
 </bean>
 
+<!-- 负责读取和写入json格式的数据； -->
 <bean id="mappingJackson2HttpMessageConverter"
 	class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
 	<property name="supportedMediaTypes">
@@ -42,10 +44,13 @@
 		</list>
 	</property>
  </bean>
+ 
 
 <context:component-scan base-package="cn.chinaSoft.pandaMall" use-default-filters="false">
 	<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
 </context:component-scan>  
+
+
 
 <mvc:default-servlet-handler/>  
 <!-- rest风格避免拦截静态资源读取 -->

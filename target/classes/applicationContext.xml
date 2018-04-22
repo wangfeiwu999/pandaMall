@@ -53,7 +53,7 @@
 	</bean>
 	
 	<!-- 配SQLSessionFactory：配了数据源，是给mybatis用的 -->
-	<bean id="sqlSessionFactory" class=" org.mybatis.spring.SqlSessionFactoryBean">
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
     	<property name="dataSource" ref="dataSource"></property>
     	<!-- <property name="configLocation" value="classpath:mybatis.cfg.xml"></property> -->
     	<!-- 自动扫描mapping.xml文件 -->
