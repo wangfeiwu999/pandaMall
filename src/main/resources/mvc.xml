@@ -3,12 +3,57 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:p="http://www.springframework.org/schema/p"
     xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
     xsi:schemaLocation="
         http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd 
         http://www.springframework.org/schema/context
-        http://www.springframework.org/schema/context/spring-context.xsd">
+        http://www.springframework.org/schema/context/spring-context.xsd
+          http://www.springframework.org/schema/mvc  
+          http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
         
-	<!-- 扫描注解包 -->
-	<context:component-scan base-package="cn.chinaSoft.pandaMall"/>
+<mvc:annotation-driven>
+	<mvc:message-converters>
+		<ref bean="stringHttpMessageConverter" />
+		<ref bean="mappingJackson2HttpMessageConverter" />
+	</mvc:message-converters>
+</mvc:annotation-driven>
+
+<bean id="stringHttpMessageConverter"
+	class="org.springframework.http.converter.StringHttpMessageConverter">
+	<property name="supportedMediaTypes">
+		<list>
+			<value>text/plain;charset=UTF-8</value>
+			<value>application/json;charset=UTF-8</value>
+		</list>
+	</property>
+</bean>
+
+<bean id="mappingJackson2HttpMessageConverter"
+	class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+	<property name="supportedMediaTypes">
+		<list>
+			<value>text/html;charset=UTF-8</value>
+			<value>text/plain;charset=UTF-8</value>
+			<value>text/xml;charset=UTF-8</value>
+			<value>text/javascript;charset=UTF-8</value>
+			<value>application/xml;charset=UTF-8</value>
+			<value>application/json;charset=UTF-8</value>
+		</list>
+	</property>
+ </bean>
+
+<context:component-scan base-package="cn.chinaSoft.pandaMall" use-default-filters="false">
+	<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+</context:component-scan>  
+
+<mvc:default-servlet-handler/>  
+<!-- rest风格避免拦截静态资源读取 -->
+<mvc:resources location="/" mapping="/**/*.html" />
+<mvc:resources location="/" mapping="/**/*.js" />
+<mvc:resources location="/" mapping="/**/*.css" />
+<mvc:resources location="/" mapping="/**/*.png" />
+<mvc:resources location="/" mapping="/**/*.jpg" />
+<mvc:resources location="/" mapping="/**/*.json" />
+<mvc:resources location="/" mapping="/**/*.ico" />
 </beans>

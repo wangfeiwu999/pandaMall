@@ -18,6 +18,7 @@ public class GoodListHomeController {
 		return homeService.getGoodsListHome();
 	}
 
+
 	public GoodListHomeService getHomeService() {
 		return homeService;
 	}
