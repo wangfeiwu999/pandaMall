@@ -1,5 +1,7 @@
 package cn.chinaSoft.pandaMall.goodsList.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -27,9 +29,11 @@ public class GoodListHomeController extends BaseController{
 		System.out.println(map);
 		System.out.println(request);
 		System.out.println(response);
-		 homeService.getGoodsListHome();
-		 ResponseModel<User> responseModel=new ResponseModel<User>();
+		
+		 List<Object> dataList=homeService.getGoodsListHome();
+		 ResponseModel<Object> responseModel=new ResponseModel<Object>();
 		 responseModel.setResult(ResultConstant.SUCCESS);
+		 responseModel.setDataList(dataList);
 		 return responseModel;
 	}
 

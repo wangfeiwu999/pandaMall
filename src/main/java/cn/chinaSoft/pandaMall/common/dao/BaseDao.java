@@ -1,5 +1,12 @@
 package cn.chinaSoft.pandaMall.common.dao;
 
-public class BaseDao {
+import java.util.ArrayList;
+import java.util.List;
 
+import cn.chinaSoft.pandaMall.common.base.Query;
+import cn.chinaSoft.pandaMall.common.entity.User;
+
+public interface BaseDao {
+
+	List<Object> selectList(Query query);
 }

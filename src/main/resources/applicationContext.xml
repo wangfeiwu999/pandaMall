@@ -28,43 +28,43 @@
      </bean>
      
     <!-- 配dataSource/连接池：与数据库交互的根本 -->
-	<!-- <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="${driver}"/>
 		<property name="url" value="${url}"/>
 		<property name="username" value="${username}"/>
 		<property name="password" value="${password}"/>
-	</bean> -->
-	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
+	</bean>
+	<!-- <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
 		destroy-method="close">
 		<property name="driverClassName" value="${driver}" />
 		<property name="url" value="${url}" />
 		<property name="username" value="${username}" />
 		<property name="password" value="${password}" />
-		<!-- 初始化连接大小 -->
+		初始化连接大小
 		<property name="initialSize" value="${initialSize}"></property>
-		<!-- 连接池最大数量 -->
+		连接池最大数量
 		<property name="maxActive" value="${maxActive}"></property>
-		<!-- 连接池最大空闲 -->
+		连接池最大空闲
 		<property name="maxIdle" value="${maxIdle}"></property>
-		<!-- 连接池最小空闲 -->
+		连接池最小空闲
 		<property name="minIdle" value="${minIdle}"></property>
-		<!-- 获取连接最大等待时间 -->
+		获取连接最大等待时间
 		<property name="maxWait" value="${maxWait}"></property>
-	</bean>
+	</bean> -->
 	
 	<!-- 配SQLSessionFactory：配了数据源，是给mybatis用的 -->
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
     	<property name="dataSource" ref="dataSource"></property>
-    	<!-- <property name="configLocation" value="classpath:mybatis.cfg.xml"></property> -->
-    	<!-- 自动扫描mapping.xml文件 -->
+    	<!-- 引入mybatis配置文件，用于指定实体类的别名 -->
+    	<property name="configLocation" value="classpath:mybatis.cfg.xml"></property>
+    	<!-- 自动扫描所有mapper文件，mybatis.cfg.xml中无需再逐个配置 -->
 		<property name="mapperLocations" value="classpath:mapper/*.xml"></property>
     </bean>
     
-    <!-- DAO接口所在包名，Spring会自动查找其下的类 -->
-	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-		<property name="basePackage" value="cn.chinaSoft.pandaMall.common.dao" />
-		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"></property>
-	</bean>
+    <!-- 注册SqlSessionTemplate，用于在Dao中注入 -->
+	 <bean id="sqlsessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">  
+        <constructor-arg index="0" ref="sqlSessionFactory" />  
+    </bean>  
 	
 
 	

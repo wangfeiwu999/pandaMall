@@ -1,7 +1,9 @@
 package cn.chinaSoft.pandaMall.goodsList.service;
 
+import java.util.List;
+
 public interface GoodListHomeService {
 
-	String getGoodsListHome();
+	List<Object> getGoodsListHome();
 
 }
