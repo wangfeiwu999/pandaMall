@@ -9,11 +9,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import cn.chinaSoft.pandaMall.common.base.ResponseModel;
+import cn.chinaSoft.pandaMall.common.constant.ResultConstant;
+import cn.chinaSoft.pandaMall.common.controller.BaseController;
 import cn.chinaSoft.pandaMall.common.entity.User;
 import cn.chinaSoft.pandaMall.goodsList.service.GoodListHomeService;
 
 @Controller
-public class GoodListHomeController {
+public class GoodListHomeController extends BaseController{
 	@Autowired
 	private GoodListHomeService	homeService;
 	
@@ -23,9 +25,11 @@ public class GoodListHomeController {
 		System.out.println("请求进来了");
 		System.out.println(user);
 		System.out.println(map);
+		System.out.println(request);
+		System.out.println(response);
 		 homeService.getGoodsListHome();
 		 ResponseModel<User> responseModel=new ResponseModel<User>();
-		 responseModel.setResult("succese");
+		 responseModel.setResult(ResultConstant.SUCCESS);
 		 return responseModel;
 	}
 
