@@ -4,6 +4,6 @@ import java.util.List;
 
 public interface GoodListHomeService {
 
-	List<Object> getGoodsListHome();
+	List getGoodsListHome();
 
 }

@@ -17,7 +17,7 @@ public class GoodListHomeServiceImpl implements GoodListHomeService {
 	private BaseDao basedao;
 
 	@Override
-	public List<Object> getGoodsListHome() {
+	public List getGoodsListHome() {
 		Query query=new Query();
 		query.setSqlName("selectAllUser");
 		return basedao.selectList(query);

@@ -8,5 +8,5 @@ import cn.chinaSoft.pandaMall.common.entity.User;
 
 public interface BaseDao {
 
-	List<Object> selectList(Query query);
+	List selectList(Query query);
 }

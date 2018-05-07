@@ -30,8 +30,8 @@ public class GoodListHomeController extends BaseController{
 		System.out.println(request);
 		System.out.println(response);
 		
-		 List<Object> dataList=homeService.getGoodsListHome();
-		 ResponseModel<Object> responseModel=new ResponseModel<Object>();
+		 List<?> dataList=homeService.getGoodsListHome();
+		 ResponseModel responseModel=new ResponseModel();
 		 responseModel.setResult(ResultConstant.SUCCESS);
 		 responseModel.setDataList(dataList);
 		 return responseModel;
