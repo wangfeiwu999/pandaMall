@@ -28,8 +28,12 @@ pmApp.config(['$stateProvider', '$urlRouterProvider',function($stateProvider, $u
             url: '/helpCenter',
             templateUrl: 'modules/helpCenter/temp/helpCenterMain.html'	
         })
-        .state('sellerCenter', {	//卖家中心
-            url: '/sellerCenter',
-            templateUrl: 'modules/sellerCenter/temp/sellerCenterMain.html'	
+        .state('sellerMain', {	//卖家中心.主页面
+            url: '/sellerMain',
+            templateUrl: 'modules/sellerCenter/temp/sellerMain.html'	
+        })
+        .state('sellerEditGood', {    //卖家中心.添加/编辑商品页面
+            url: '/sellerEditGood/:id',
+            templateUrl: 'modules/sellerCenter/temp/sellerEditGood.html'    
         })
 }]);

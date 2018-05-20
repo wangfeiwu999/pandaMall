@@ -14,17 +14,18 @@
   </head>
   <body ng-controller="rootCtrl">
 	<div class="container">  
-		<div class="homeNav">
-			<a class="navbar-brand" id="logoLink" ui-sref="home">
+		<div class="homeNav clearfix">
+			<!-- <a class="navbar-brand" id="logoLink" ui-sref="home">
 		    	<img src="img/logo.jpg" >
-		    </a>
-			<ul class="nav nav-pills">
-			  	<li role="presentation"><a ui-sref="login">登录</a></li>
+		    </a> -->
+			<ul class="nav nav-pills pull-right">
+			  	<li role="presentation"><a ui-sref="home">主页</a></li>
+                <li role="presentation"><a ui-sref="login">登录</a></li>
 		        <li role="presentation"><a ui-sref="register">注册</a></li>
 		        <li role="presentation"><a ui-sref="myOrders">我的订单</a></li>
 		        <li role="presentation"><a ui-sref="cart">购物车</a></li>
 		        <li role="presentation"><a ui-sref="helpCenter">帮助中心</a></li>
-		        <li role="presentation"><a ui-sref="sellerCenter">卖家中心</a></li>
+		        <li role="presentation"><a ui-sref="sellerMain">卖家中心</a></li>
 			</ul>
 		</div>
 		<div ui-view></div>  
@@ -41,5 +42,7 @@
     <script src="js/pm.router.js" type="text/javascript" charset="UTF-8"></script>
     <script src="js/pm.controller.js" type="text/javascript" charset="UTF-8"></script>
     <script src="modules/home/controller/homeMainCtrl.js" type="text/javascript" charset="UTF-8"></script>
+    <script src="modules/sellerCenter/controller/sellerMainCtrl.js"></script>
+    <script src="modules/sellerCenter/controller/sellerEditGood.js"></script>
   </body>
 </html>
