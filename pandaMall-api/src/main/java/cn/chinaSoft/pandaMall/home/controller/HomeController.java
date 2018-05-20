@@ -1,4 +1,4 @@
-package cn.chinaSoft.pandaMall.goodsList.controller;
+package cn.chinaSoft.pandaMall.home.controller;
 
 import java.util.List;
 
@@ -14,14 +14,14 @@ import cn.chinaSoft.pandaMall.common.base.ResponseModel;
 import cn.chinaSoft.pandaMall.common.constant.ResultConstant;
 import cn.chinaSoft.pandaMall.common.controller.BaseController;
 import cn.chinaSoft.pandaMall.common.entity.User;
-import cn.chinaSoft.pandaMall.goodsList.service.GoodListHomeService;
+import cn.chinaSoft.pandaMall.home.service.HomeService;
 
 @Controller
-public class GoodListHomeController extends BaseController{
+public class HomeController extends BaseController{
 	@Autowired
-	private GoodListHomeService	homeService;
+	private HomeService	homeService;
 	
-	@RequestMapping(value = "/getGoodsListHome", method = RequestMethod.POST)
+	@RequestMapping(value = "/homeInit", method = RequestMethod.POST)
 	 @ResponseBody
 	private ResponseModel getGoodsListHome(@RequestBody User user,ModelMap map) {
 		System.out.println("请求进来了");
@@ -38,11 +38,11 @@ public class GoodListHomeController extends BaseController{
 	}
 
 
-	public GoodListHomeService getHomeService() {
+	public HomeService getHomeService() {
 		return homeService;
 	}
 
-	public void setHomeService(GoodListHomeService homeService) {
+	public void setHomeService(HomeService homeService) {
 		this.homeService = homeService;
 	}
 	
