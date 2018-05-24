@@ -20,6 +20,6 @@ public class BaseDaoImpl  implements BaseDao{
 
 	@Override
 	public List selectList(Query query) {
-		return sqlSession.selectList(query.getSqlName());
+		return sqlSession.selectList(query.getSqlName(), query.getSqlParameters());
 	} 
 }

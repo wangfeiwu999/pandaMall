@@ -2,9 +2,13 @@
 <div id="sellerMain"  ng-controller="sellerMainCtrl">
 	<div class="clearfix">
 		<span class="pull-left">我的商品</span>
-		<button class="btn btn-default pull-right" type="submit"
+		<!-- <button class="btn btn-default pull-right" type="submit"
 			ui-sref="sellerEditGood({id:null})">
 			添加新商品
+		</button> -->
+		<button class="btn btn-default pull-right" type="submit"
+			ng-click="click()">
+			获取商品
 		</button>
 	</div>
 	<div class="bs-example" data-example-id="sellerMain-table">

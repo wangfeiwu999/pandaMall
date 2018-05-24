@@ -20,8 +20,9 @@ public class HomeServiceImpl implements HomeService {
 	public List getGoodsListHome() {
 		Query query=new Query();
 		query.setSqlName("selectAllUser");
-		return basedao.selectList(query);
-	}
+//		return basedao.selectList(query);
+		return null;
+	} 
 
 
 

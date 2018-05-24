@@ -1,2 +1,2 @@
-var pmApp = angular.module('pandaMallApp', ['ui.router',"ctrlModule"]);  
+var pmApp = angular.module('pandaMallApp', ['ui.router',"ctrlModule","servicelModule"]);  
 

@@ -1,6 +1,6 @@
 package cn.chinaSoft.pandaMall.common.entity;
 
-import java.util.Date;
+import java.sql.Timestamp;
 
 import cn.chinaSoft.pandaMall.common.constant.Currency;
 /*商品实体类*/
@@ -12,7 +12,7 @@ public class Good {
 	private String urls;
 	private double price;
 	//商品计价货币
-	private Currency currency=Currency.CNY;
+	private String currency=Currency.CNY.getName();
 	//产地
 	private String productionPlace;
 	//销售量
@@ -22,13 +22,15 @@ public class Good {
 	//产品介绍
 	private String introduce;
 	//上架时间
-	private Date crtDate;
+	private Timestamp crtDate;
 	//最近修改时间
-	private Date modifyDate;
+	private Timestamp modifyDate;
 	//下架时间
-	private Date unShelveDate;
+	private Timestamp unShelveDate;
 	//状态，0代表已下架，1代表在售
 	private int state;
+	//商品所属用户的id
+	private int userId;
 	
 	public Good() {
 		super();
@@ -66,11 +68,11 @@ public class Good {
 		this.price = price;
 	}
 
-	public Currency getCurrency() {
+	public String getCurrency() {
 		return currency;
 	}
 
-	public void setCurrency(Currency currency) {
+	public void setCurrency(String currency) {
 		this.currency = currency;
 	}
 
@@ -106,27 +108,27 @@ public class Good {
 		this.introduce = introduce;
 	}
 
-	public Date getCrtDate() {
+	public Timestamp getCrtDate() {
 		return crtDate;
 	}
 
-	public void setCrtDate(Date crtDate) {
+	public void setCrtDate(Timestamp crtDate) {
 		this.crtDate = crtDate;
 	}
 
-	public Date getModifyDate() {
+	public Timestamp getModifyDate() {
 		return modifyDate;
 	}
 
-	public void setModifyDate(Date modifyDate) {
+	public void setModifyDate(Timestamp modifyDate) {
 		this.modifyDate = modifyDate;
 	}
 
-	public Date getUnShelveDate() {
+	public Timestamp getUnShelveDate() {
 		return unShelveDate;
 	}
 
-	public void setUnShelveDate(Date unShelveDate) {
+	public void setUnShelveDate(Timestamp unShelveDate) {
 		this.unShelveDate = unShelveDate;
 	}
 
@@ -137,5 +139,16 @@ public class Good {
 	public void setState(int state) {
 		this.state = state;
 	}
+
+	public int getUserId() {
+		return userId;
+	}
+
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
+
+
+
 	
 }
