@@ -6,7 +6,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="cn.chinaSoft.pandaMall.sellerCenter">
 
 	<select id="getGoodsListBySellerId" resultType="Good">
-		SELECT * FROM pm_good WHERE userId=#{userId};
+		SELECT g.*,GROUP_CONCAT(p.`name`) AS imgNames FROM pm_good g 
+			LEFT JOIN pm_good_pic p ON g.id=p.goodId 
+			WHERE userId=#{userId} GROUP BY p.goodId;
 	</select>
 	
 </mapper>

@@ -9,7 +9,8 @@ public class Good {
 	//商品名称
 	private String name;
 	//商品图片URL
-	private String urls;
+	private String imgNames;
+	//价格
 	private double price;
 	//商品计价货币
 	private String currency=Currency.CNY.getName();
@@ -52,12 +53,16 @@ public class Good {
 		this.name = name;
 	}
 
-	public String getUrls() {
-		return urls;
+
+
+
+
+	public String getImgNames() {
+		return imgNames;
 	}
 
-	public void setUrls(String urls) {
-		this.urls = urls;
+	public void setImgNames(String imgNames) {
+		this.imgNames = imgNames;
 	}
 
 	public double getPrice() {

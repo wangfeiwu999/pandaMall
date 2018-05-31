@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import cn.chinaSoft.pandaMall.common.base.ResponseModel;
 import cn.chinaSoft.pandaMall.common.constant.ResultConstant;
 import cn.chinaSoft.pandaMall.common.entity.User;
+import cn.chinaSoft.pandaMall.common.util.PropertiesUtil;
 import cn.chinaSoft.pandaMall.sellerCenter.entity.SellerGoodInfo;
 import cn.chinaSoft.pandaMall.sellerCenter.service.SellerService;
 
@@ -25,7 +26,7 @@ public class SellerController {
 	@RequestMapping(value = "/getGoodsList", method = RequestMethod.POST)
 	 @ResponseBody
 	private ResponseModel getGoodsList(@RequestBody SellerGoodInfo sellerGoodInfo,ModelMap map) {
-		System.out.println("getGoodsList请求进来了");
+		System.out.println(PropertiesUtil.getProperty("pm.good.pic.path"));
 		
 		 List<?> dataList=sellerService.getGoodsList(sellerGoodInfo);
 		 ResponseModel responseModel=new ResponseModel();

@@ -3,7 +3,7 @@ ctrlModule.controller('sellerMainCtrl',['$rootScope','$scope','$http',function($
 	$scope.items=[]
 	//请求卖家的所有商品
 	$http({  
-		     url:"/api/SellerCenter/getGoodsList", 
+		     url:"/api/pm/SellerCenter/getGoodsList", 
 		     method:"POST",
 		     data: {good:{id:1}}        //这种传参方式在POST请求时使用  
 		}).success(function(response){  
