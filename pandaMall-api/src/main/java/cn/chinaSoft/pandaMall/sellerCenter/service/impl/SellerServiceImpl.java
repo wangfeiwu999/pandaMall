@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
 import cn.chinaSoft.pandaMall.common.base.Query;
+import cn.chinaSoft.pandaMall.common.constant.PmConstant;
 import cn.chinaSoft.pandaMall.common.dao.BaseDao;
 import cn.chinaSoft.pandaMall.common.entity.Good;
 import cn.chinaSoft.pandaMall.sellerCenter.entity.SellerGoodInfo;
@@ -36,7 +37,7 @@ public class SellerServiceImpl implements SellerService {
 				String[] imageArr=good.getImgNames().split(",");
 				String imageUrls="";
 				for (String imageName:imageArr) {
-					String imgPath="api"+File.separator+"static"+File.separator+"img"+File.separator+"good"+File.separator+good.getId()+File.separator+imageName+",";
+					String imgPath=PmConstant.RESPONSE_PREFIX_PIC+"good"+File.separator+good.getId()+File.separator+imageName+",";
 					imageUrls+=(imgPath);
 				}
 				good.setImgNames(imageUrls.substring(0, imageUrls.length()-1));

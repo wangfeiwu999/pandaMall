@@ -11,8 +11,20 @@
         http://www.springframework.org/schema/context/spring-context.xsd
           http://www.springframework.org/schema/mvc  
           http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
-        
+   
+   <!-- 文件（上传）解析器 -->
+   <bean id="multipartResolver"  
+        class="org.springframework.web.multipart.commons.CommonsMultipartResolver">  
+        <!-- 上传文件大小上限，单位为字节（总大小不超过100M，单个不超过10MB） -->
+        <property name="maxUploadSize" value="104857600"> </property> 
+        <property name="maxUploadSizePerFile" value="10485760"> </property> 
+        <!-- 请求的编码格式，必须和jSP的pageEncoding属性一致，以便正确读取表单的内容，默认为ISO-8859-1 -->
+        <property name="defaultEncoding" value="UTF-8"></property>
+    </bean>
+   
+ 
 <mvc:annotation-driven>
+	<!--   配置数据格式转换器     --> 
 	<mvc:message-converters>
 		<ref bean="stringHttpMessageConverter" />
 		<ref bean="mappingJackson2HttpMessageConverter" />
@@ -46,6 +58,7 @@
  </bean>
  
 
+<!-- 控制器组件扫描 -->
 <context:component-scan base-package="cn.chinaSoft.pandaMall" use-default-filters="false">
 	<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
 </context:component-scan>  

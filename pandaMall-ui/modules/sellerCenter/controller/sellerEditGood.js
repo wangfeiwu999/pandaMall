@@ -14,8 +14,17 @@ ctrlModule.controller('sellerEditGood',['$rootScope','$scope','FileUploader','$h
 	//文件上传
 	$scope.uploader=new FileUploader();
     $scope.uploader.url='/api/pm/upload/uploadGoodPic';/*上传URL*/
-    $scope.uploader.queue=[];
-    $scope.uploader.method ="GET"
+    $scope.uploader.onAfterAddingFile = function(fileItem) {
+        fileItem.upload()
+        console.log(fileItem)
+    };
+    $scope.uploader.onSuccessItem=function(item, response, status, headers) {
+    	console.log(item, response, status, headers)
+    	if(response.result=="SUCCESS"){
+    		item.preview=response.dataList[0].preview;
+    	}
+    	
+    }
 
    	$scope.saveGood=function(form){
    		console.log(1,$scope.uploader)

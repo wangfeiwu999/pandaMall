@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import cn.chinaSoft.pandaMall.common.base.ResponseModel;
-import cn.chinaSoft.pandaMall.common.constant.ResultConstant;
+import cn.chinaSoft.pandaMall.common.constant.PmConstant;
 import cn.chinaSoft.pandaMall.common.entity.User;
 import cn.chinaSoft.pandaMall.common.util.PropertiesUtil;
 import cn.chinaSoft.pandaMall.sellerCenter.entity.SellerGoodInfo;
@@ -26,15 +26,15 @@ public class SellerController {
 	@RequestMapping(value = "/getGoodsList", method = RequestMethod.POST)
 	 @ResponseBody
 	private ResponseModel getGoodsList(@RequestBody SellerGoodInfo sellerGoodInfo,ModelMap map) {
-		System.out.println(PropertiesUtil.getProperty("pm.good.pic.path"));
+//		System.out.println(PropertiesUtil.getProperty("pm.good.pic.path"));
 		
 		 List<?> dataList=sellerService.getGoodsList(sellerGoodInfo);
 		 ResponseModel responseModel=new ResponseModel();
 		 if(null!=dataList) {
-			 responseModel.setResult(ResultConstant.SUCCESS);
+			 responseModel.setResult(PmConstant.SUCCESS);
 			 responseModel.setDataList(dataList);
 		 }else {
-			 responseModel.setResult(ResultConstant.FAIL);
+			 responseModel.setResult(PmConstant.FAIL);
 		} 
 		 return responseModel;
 	}

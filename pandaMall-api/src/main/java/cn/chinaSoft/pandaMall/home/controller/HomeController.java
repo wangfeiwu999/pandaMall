@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import cn.chinaSoft.pandaMall.common.base.ResponseModel;
-import cn.chinaSoft.pandaMall.common.constant.ResultConstant;
+import cn.chinaSoft.pandaMall.common.constant.PmConstant;
 import cn.chinaSoft.pandaMall.common.controller.BaseController;
 import cn.chinaSoft.pandaMall.common.entity.User;
 import cn.chinaSoft.pandaMall.home.service.HomeService;
@@ -32,7 +32,7 @@ public class HomeController extends BaseController{
 		
 		 List<?> dataList=homeService.getGoodsListHome();
 		 ResponseModel responseModel=new ResponseModel();
-		 responseModel.setResult(ResultConstant.SUCCESS);
+		 responseModel.setResult(PmConstant.SUCCESS);
 		 responseModel.setDataList(dataList);
 		 return responseModel;
 	}
