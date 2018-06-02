@@ -33,6 +33,13 @@ public class UploadController {
 		ResponseModel responseModel=new ResponseModel();
 		String fileName=file.getOriginalFilename();
 		File tmpFile=new File(PmConstant.PATH_UPLOADTMP, fileName);
+		
+		//判断目标文件所在的目录是否存在，如果不存在则创建目录结构(完整的目录结构)  
+        if(!tmpFile.getParentFile().exists()) {  //判断只需判读父级目录
+            System.out.println("目标文件所在目录不存在，准备创建它！");  
+            tmpFile.getParentFile().mkdirs();	//创建则需要创建完整的目录结构
+        } 
+        
 		if(tmpFile.exists()) {
 			tmpFile.delete();
 		}
